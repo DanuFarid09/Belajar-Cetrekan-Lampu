@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cetrekan Lampu</title>
+</head>
+
+<body class="min-h-screen text-slate-100 font-sans p-6">
+
+    <header class="text-center mb-10">
+        <h1 class="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-500 bg-clip-text text-transparent">
+            Cetrekan Lampu
+        </h1>
+        <p class="text-slate-400 mt-2">Atur setiap lampu atau nyalakan seluruh ruangan sekaligus</p>
+        <div class="mt-4 inline-flex items-center gap-2 bg-slate-800/70 px-4 py-2 rounded-full text-sm">
+            <span class="text-slate-300">Lampu menyala:</span>
+            <span id="jumlahMenyala" class="font-bold text-yellow-300">0</span>
+            <span class="text-slate-500">/ 10</span>
+        </div>
+    </header>
+
+    <main class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+
+        <!-- RUANG KELUARGA -->
+        <section class="kartu-ruangan rounded-2xl p-5">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold">🛋️ Ruang Keluarga</h2>
+                <label class="inline-flex relative items-center cursor-pointer" title="Saklar grup">
+                    <input type="checkbox" id="grup-keluarga" class="sr-only peer saklar-grup" data-grup="keluarga" onchange="saklarGrup('keluarga')">
+                    <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-green-500 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                </label>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="kartu-lampu">
+                    <img src="assets/images/off.gif" alt="Lampu 1" id="lampu1" width="160" height="160" class="lampu-gambar rounded-lg">
+                    <span class="text-sm text-slate-300">Lampu 1</span>
+                    <label for="default-toggle1" class="inline-flex relative items-center cursor-pointer">
+                        <input type="checkbox" id="default-toggle1" class="sr-only peer saklar-lampu" data-lampu="lampu1" data-grup="keluarga" onchange="saklar()">
+                        <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                    </label>
+                </div>
+                <div class="kartu-lampu">
+                    <img src="assets/images/off.gif" alt="Lampu 2" id="lampu2" width="160" height="160" class="lampu-gambar rounded-lg">
+                    <span class="text-sm text-slate-300">Lampu 2</span>
+                    <label for="default-toggle2" class="inline-flex relative items-center cursor-pointer">
+                        <input type="checkbox" id ="default-toggle2" class="sr-only peer saklar-lampu" data-lampu="lampu2" data-grup="keluarga" onchange="saklar()">
+                        <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                    </label>
+                </div>
+                <div class="kartu-lampu">
+                    <img src="assets/images/off.gif" alt="Lampu 3" id="lampu3" width="160" height="160" class="lampu-gambar rounded-lg">
+                    <span class="text-sm text-slate-300">Lampu 3</span>
+                    <label for="default-toggle3" class="inline-flex relative items-center cursor-pointer">
+                        <input type="checkbox" id="default-toggle3" class="sr-only peer saklar-lampu" data-lampu="lampu3" data-grup="keluarga" onchange="saklar()">
+                        <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- RUANG MAKAN -->
+        <section class="kartu-ruangan rounded-2xl p-5">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold">🍽️ Ruang Makan</h2>
+                <label class="inline-flex relative items-center cursor-pointer" title="Saklar grup">
+                   <input type="checkbox" id="grup-makan" class="sr-only peer saklar-grup" data-grup="makan" onchange="saklarGrup('makan')">
+                    <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-green-500 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                </label>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="kartu-lampu">
+                    <img src="assets/images/off.gif" alt="Lampu 4" id="lampu4" width="160" height="160" class="lampu-gambar rounded-lg">
+                    <span class="text-sm text-slate-300">Lampu 4</span>
+                    <label for="default-toggle4" class="inline-flex relative items-center cursor-pointer">
+                        <input type="checkbox" id="default-toggle4" class="sr-only peer saklar-lampu" data-lampu="lampu4" data-grup="makan" onchange="saklar()">
+                        <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- RUANG TIDUR -->
+        <section class="kartu-ruangan rounded-2xl p-5">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold">🛏️ Ruang Tidur</h2>
+                <label class="inline-flex relative items-center cursor-pointer" title="Saklar grup">
+                   <input type="checkbox" id="grup-tidur" class="sr-only peer saklar-grup" data-grup="tidur" onchange="saklarGrup('tidur')">
+                    <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-green-500 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                </label>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="kartu-lampu">
+                    <img src="assets/images/off.gif" alt="Lampu 5" id="lampu5" width="160" height="160" class="lampu-gambar rounded-lg">
+                    <span class="text-sm text-slate-300">Lampu 5</span>
+                    <label for="default-toggle5" class="inline-flex relative items-center cursor-pointer">
+                        <input type="checkbox" id="default-toggle5" class="sr-only peer saklar-lampu" data-lampu="lampu5" data-grup="tidur" onchange="saklar()">
+                        <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                    </label>
+                </div>
+                <div class="kartu-lampu">
+                    <img src="assets/images/off.gif" alt="Lampu 6" id="lampu6" width="160" height="160" class="lampu-gambar rounded-lg">
+                    <span class="text-sm text-slate-300">Lampu 6</span>
+                    <label for="default-toggle6" class="inline-flex relative items-center cursor-pointer">
+                        <input type="checkbox" id="default-toggle6" class="sr-only peer saklar-lampu" data-lampu="lampu6" data-grup="tidur" onchange="saklar()">
+                        <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- RUANG TAMU -->
+        <section class="kartu-ruangan rounded-2xl p-5">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold">🪑 Ruang Tamu</h2>
+                <label class="inline-flex relative items-center cursor-pointer" title="Saklar grup">
+                    <input type="checkbox" id="grup-tamu" class="sr-only peer saklar-grup" data-grup="tamu" onchange="saklarGrup('tamu')">
+                    <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-green-500 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                </label>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="kartu-lampu">
+                    <img src="assets/images/off.gif" alt="Lampu 7" id="lampu7" width="160" height="160" class="lampu-gambar rounded-lg">
+                    <span class="text-sm text-slate-300">Lampu 7</span>
+                    <label for="default-toggle7" class="inline-flex relative items-center cursor-pointer">
+                        <input type="checkbox" id="default-toggle7" class="sr-only peer saklar-lampu" data-lampu="lampu7" data-grup="tamu" onchange="saklar()">
+                        <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                    </label>
+                </div>
+                <div class="kartu-lampu">
+                    <img src="assets/images/off.gif" alt="Lampu 8" id="lampu8" width="160" height="160" class="lampu-gambar rounded-lg">
+                    <span class="text-sm text-slate-300">Lampu 8</span>
+                    <label for="default-toggle8" class="inline-flex relative items-center cursor-pointer">
+                        <input type="checkbox" id="default-toggle8" class="sr-only peer saklar-lampu" data-lampu="lampu8" data-grup="tamu" onchange="saklar()">
+                        <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                    </label>
+                </div>
+                <div class="kartu-lampu">
+                    <img src="assets/images/off.gif" alt="Lampu 9" id="lampu9" width="160" height="160" class="lampu-gambar rounded-lg">
+                    <span class="text-sm text-slate-300">Lampu 9</span>
+                    <label for="default-toggle9" class="inline-flex relative items-center cursor-pointer">
+                        <input type="checkbox" id="default-toggle9" class="sr-only peer saklar-lampu" data-lampu="lampu9" data-grup="tamu" onchange="saklar()">
+                        <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                    </label>
+                </div>
+                <div class="kartu-lampu">
+                    <img src="assets/images/off.gif" alt="Lampu 10" id="lampu10" width="160" height="160" class="lampu-gambar rounded-lg">
+                    <span class="text-sm text-slate-300">Lampu 10</span>
+                    <label for ="default-toggle10" class="inline-flex relative items-center cursor-pointer">
+                        <input type="checkbox" id="default-toggle10" class="sr-only peer saklar-lampu" data-lampu="lampu10" data-grup="tamu" onchange="saklar()">
+                        <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="saklar.js"></script>
+</body>
+
+</html>
